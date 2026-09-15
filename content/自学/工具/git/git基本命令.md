@@ -1,9 +1,12 @@
 ---
 publish: true
 created: 2026-08-27T13:26:09.620Z
-modified: 2026-09-14T11:33:42.612Z
+modified: 2026-09-15T11:19:13.131Z
 ---
 
+git init：输入后初始化仓库
+可以通过git log来查看git提交记录的哈希值
+==git branch -f \\\[分支1] \[分支2]==，注意这里
 commit：应该知道每个git commit做了什么
 【plumbing】管道：真正实现功能要干的
 【porcelain】洗脸盆：给用户看的东西

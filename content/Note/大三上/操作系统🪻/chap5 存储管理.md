@@ -1,7 +1,7 @@
 ---
 publish: true
 created: 2026-08-26T11:14:54.727Z
-modified: 2026-09-14T11:08:52.451Z
+modified: 2026-11-17T09:10:30.030Z
 ---
 
 # 大容量存储
@@ -32,8 +32,9 @@ modified: 2026-09-14T11:08:52.451Z
 【低级/物理格式化】比如头信息，ecc等
 
 - 分区，视为很多个logical disk
-  【逻辑格式化】将厨师的文件系统数据结构存储到磁盘上来创建文件系统
-- 预留一些block来handle bad blocks
+  【逻辑格式化】将初始的文件系统数据结构存储到磁盘上来创建文件系统：引导块，超级块，空闲空间管理表，inode表/FCB目录结构
+- 文件放哪哪些空的管理机制
+- 预留一些block来handle bad blocks，坏块监测到之后放到放到空闲管理黑名单
 - 将若干blocks聚合成cluster让磁盘io单位为block，文件io单位为cluster，减少random access
   【卷/volume】包含文件系统的分区
 

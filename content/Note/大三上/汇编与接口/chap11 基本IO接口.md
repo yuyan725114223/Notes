@@ -1,7 +1,7 @@
 ---
 publish: true
 created: 2026-11-15T04:34:10.048Z
-modified: 2026-11-17T05:53:45.053Z
+modified: 2026-11-17T07:42:20.658Z
 ---
 
 # 通信方法
@@ -263,14 +263,26 @@ C：有输出锁存器/缓冲器；输入缓冲器
 - CX>8000H：右（手）旋
 - CX<8000H：左旋
 
-# 永磁直流电动机
-
-【PMDC】上
-【PWM】
-
 # 接口显示器、键盘、etc
 
 # 16550串行通信接口适应器
+
+一次一个bit
+3种传输模式
+
+- 简单：只能从transmitter到接收器
+- 半双工/全双工
+  见计算机网络
+  【BCLK】采样频率，在每个bit的最中间采样，因为振幅最大，一般是真实波特率的n倍，把n叫做baud rate divisor
+  转换串并行数据的硬件：
+  【UART】只支持异步，先传送低位，依次传高位；高位叫做mark，低位叫做space
+  有一个波特产生器，把输入时钟频率/Divisor，结果就是BCLK
+  这里$divisor=\frac{input\_clock\_frequency}{baud\_rate\times baud\_rate\_divisor}$
+  和intel兼容
+  【USART】同&异步模式
+  FIFO模式有16位的buffer
+  一般16倍采样频率
+  调制解调控制信号：CTS，RTS，DSR，DTR，RI，DCD
 
 # 8254可编程timer
 
@@ -362,6 +374,14 @@ G的上升沿引发
 ## 多个锁指令来监测
 
 ## 处理从DC-10MHz的输入
+
+## 永磁直流电动机
+
+【PMDC】上
+【PWM】脉冲宽度调制，调节terminal之间的电压；脉冲更长的话电机会更快地旋转
+【H桥】H字排布，4个开关，中间一个电机
+如果刚好duty周期在一半的话，电机不会旋转
+#todo 211
 
 # 接入数模/模数转换器
 
